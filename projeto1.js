@@ -37,7 +37,6 @@ else if  (pergunta4 = "nao"){somano = somano + 1}
 if (pergunta5 = "sim" ) { somasim = somasim +1 }
 else if  (pergunta5 = "nao"){somano = somano + 1} 
 
-function resultado ()
   {if (somasim = 5) {console.log ('Parabéns, você foi classificado para etapa final!')
 }
   else if (somasim= 4) {console.log ('Foi por  pouco! mas vc passou') 
