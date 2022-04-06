@@ -35,7 +35,7 @@ let valores = {
 // função de avançar a era
     function avancaera ( ) {
        valores.era ++;
-        console.log ('Você avançou para Era',tempo.era);
+        console.log ('Você avançou para Era',valores.era);
     }   
 
 // inicio do jogo
@@ -132,7 +132,7 @@ if (escolha2de2 == 'a' )
     console.log ('restam',valores.horarestante,'horas\n \n O que é aquilo??');
 }
 
-    else (cap2escolhaescolha2de2 == 'b' )
+    else (escolha2de2 == 'b' )
      {
         valores.horarestante -=24;
         valores.valordaforca =0;
