@@ -14,7 +14,26 @@ console.log ('Olá', nome,',infelizmente tivemos um problema na linha do tempo d
 console.log('____________________________________________________________________________');
 
 //declarando variavel de reinicio
-let reiniciar ;
+let reiniciar
+
+fim = () =>
+{
+(valores.valordaforca == 0)
+return true;
+}
+
+fim2 = () =>
+{
+(valores.valordav == 0)
+return true;
+}
+
+fim3 = () =>
+{
+(valores.horarestante == 0)
+return true;
+}
+
 
 //variaveis de valores para usar durante o jogo
 let valores = {
@@ -41,7 +60,7 @@ let valores = {
 // inicio do jogo
 
  // mostrando valores
-console.log('Você está Era',valores.era,'\n\nvida:',valores.valordav, 'força:', valores.valordaforca, '\nRestam ',valores.horarestante,'horas');
+console.log('Você está Era',valores.era,'\n\nvida:',valores.valordav, 'resistência:', valores.valordaforca, '\nRestam ',valores.horarestante,'horas');
 
 //primeira historia - jurassic
 
@@ -54,7 +73,7 @@ console.log ('espera... eu sou um deles? aaaaaaah porque esses tiranos estão me
 let cap1Escolha = prompt ();
 
 //enquanto escolha diferente de a ou b repetir a pergunta
-while (cap1Escolha != "a" && cap1Escolha != "b")
+for (let i = 0; cap1Escolha != "a" && cap1Escolha != "b";i++)
 {
     console.log("Digite uma opção válida");
    console.log ('O que eu devo fazer? \n Tentar fugir (a) \n Tentar lutar (b)\n');
@@ -71,7 +90,7 @@ while (cap1Escolha != "a" && cap1Escolha != "b")
     else if (cap1Escolha == "b") { 
         // alterando valores e depois continuando
          valores.valordav -=20 ;
-         valores.valordaforca +=30;
+         valores.valordaforca -=10;
          valores.horarestante -=2;
 
         console.log ('Vida:',valores.valordav, 'Resistência: ', valores.valordaforca);
@@ -108,7 +127,7 @@ let cap2escolha = prompt();
 
 if (cap2escolha == "a")
  {  
-    valores.valordav -=15;
+    valores.valordav -=20;
     valores.horarestante -=2;
 
     console.log ('restam',valores.horarestante,'horas');
@@ -126,7 +145,7 @@ if (escolha2de2 == 'a' )
 {
     valores.horarestante -=7;
     valores.valordav -=10;
-    valores.valordaforca -=15;
+    valores.valordaforca -=10;
 
     console.log ('- Vamos lá... ficar parado aqui pode ser perigoso. \n ');
     console.log ('restam',valores.horarestante,'horas\n \n O que é aquilo??');
@@ -149,66 +168,67 @@ if (escolha2de2 == 'a' )
 } 
 else (cap2escolha == "b")
  {  
-    valores.valordaforca -=15;
-    valores.valordav -=15;
+    valores.valordaforca -=10;
+    valores.valordav -=30;
     valores.horarestante -=7;
 
     console.log ('- Vamos lá... ficar parado aqui pode ser perigoso.\n Depois de umas horas andando... \n O que é aquilo?? olho para frente e vejo a nave, que alivio!!! Vamos até la '); 
     console.log( 'vida:',valores.valordav, 'Resistência: ', valores.valordaforca, '\n','Restam',valores.horarestante,'horas');
 }
+
 // passagem ultima era
+
+ avancaera ( ) 
+
 console.log (nome,'- tudo desaparece novamente e volto para o tunel, varias épocas passam na minha frente, e no visor mostra que estou em 2050\n Robô - o seu último desafio é passar por aquela porta que está há 30km de você antes que o tempo acabe, boa sorte!');
 console.log( 'vida:',valores.valordav, 'Resistência: ', valores.valordaforca, '\n','Restam',valores.horarestante,'horas\n \n -Vejo que na parede está escrito: há uma moto 5 km para trás\n\n Ir para moto (a)\n Seguir meu caminho (b)');
+let cap3escolha = prompt();
+
+if (cap3escolha == 'a') 
+{ 
+    valores.valordaforca -=15;
+    valores.valordav -=15;
+    valores.horarestante -=3;
+    
+    console.log ('- depois de horas andando, chego perto da moto com felicidade, mas quando tento ligar percebo que não tem gasolina! Apenas perdi tempo')
+    console.log( 'vida:',valores.valordav, 'Resistência: ', valores.valordaforca, '\n','Restam',valores.horarestante,)
+    if (fim())
+{
+    break
+}
+}
+else (cap3escolha == 'b') 
+{
+valores.valordaforca+= 6
+
+console.log ('boa escolha! você não pode perder tempo');
+console.log( 'vida:',valores.valordav, 'Resistência: ', valores.valordaforca, '\n','Restam',valores.horarestante,'horas');
+}
+
+console.log (nome,'- preciso ir logo, não posso perder tempo!\n algumas horas depois... encontro uma espécie de cabana, dentro da cabana havia uma panela com água, faltam apenas 5 km, o que devo fazer? \n Beber a água (a)\n');
+let cap4escolha = prompt();
 
 
+valores.horarestante -=1;
 
 
-} while (reiniciar == 'sim') 
+if (cap4escolha == 'a' )
+ {
+    valores.valordaforca +=10;
+    valores.valordav +=5;
+console.log ('a água te ajudou a ganhar resistência, boa escolha!');
+    console.log( 'vida:',valores.valordav, 'Resistência: ', valores.valordaforca, '\n','Restam',valores.horarestante,'horas');
+}
 
+console.log ('cheguei na porta! agora só preciso abri-la.\n para abrir a porta, você precisa ter a resistencia > 10');
 
+if (valores.valordaforca >=10)
+{
+    console.log ('***********************PARABÉNS!!!!************************* \nVocê passou por todas as etapas econseguiu vencer o game');
+    reiniciar = prompt ('Deseja jogar novamente?') ;
+}
+else {
+    break;
+}
+} while (reiniciar = 'sim') ;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//console.log ('- E então aparecem ')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// while (valores.valordaforca -=0 ) {
-    //console.log('------ game over -------\n você precisa de força para avançar no jogo ;-;');
-   // break;
-
-//} 
-
-
-
-
-   // reiniciar = prompt ('Deseja jogar novamente?') 
